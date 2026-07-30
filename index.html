@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DevClub — Pare de estudar sem direção</title>
+<meta
+  name="description"
+  content="Formações completas em programação, inteligência artificial, automações e dados, com suporte humano, projetos reais e comunidade."
+/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Albert+Sans:wght@400;500;600;700;800&display=swap"
+  rel="stylesheet"
+/>
+
+<link rel="stylesheet" href="css/tokens.css" />
+<link rel="stylesheet" href="css/layout.css" />
+<link rel="stylesheet" href="css/hero.css" />
+<link rel="stylesheet" href="css/reel.css" />
+</head>
+<body>
+
+<header class="site-header header-fade">
+  <div class="wrap">
+    <a href="#" class="brand">
+      <img src="public/LOGO.webp" alt="" width="26" height="26" />
+      DevClub
+    </a>
+
+    <nav class="header-nav" aria-label="Navegação principal">
+      <a href="#">Formações</a>
+      <a href="#">Faculdade</a>
+    </nav>
+
+    <div class="header-right">
+      <a href="#" class="student-link">Área do Aluno</a>
+      <a href="#hero-cta" class="btn btn-primary">
+        Quero ser aluno
+        <span class="btn-arrow" aria-hidden="true">↗</span>
+      </a>
+      <button
+        type="button"
+        class="menu-toggle"
+        data-menu-toggle
+        aria-expanded="false"
+        aria-label="Abrir menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-drawer" data-mobile-drawer data-open="false">
+  <div class="mobile-drawer-backdrop"></div>
+  <div class="mobile-drawer-panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="mobile-drawer-top">
+      <span class="brand">
+        <img src="public/LOGO.webp" alt="" width="24" height="24" />
+        DevClub
+      </span>
+      <button type="button" class="mobile-drawer-close" data-drawer-close aria-label="Fechar menu">✕</button>
+    </div>
+    <nav class="mobile-drawer-nav" aria-label="Navegação mobile">
+      <a href="#">Formações</a>
+      <a href="#">Faculdade</a>
+      <a href="#">Área do Aluno</a>
+    </nav>
+    <div class="mobile-drawer-cta">
+      <a href="#hero-cta" class="btn btn-primary">Quero ser aluno</a>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <section class="hero-scroll-wrapper" aria-label="Apresentação DevClub">
+    <div class="hero-stage">
+      <video id="hero-video" class="hero-media" muted playsinline aria-hidden="true"></video>
+      <canvas id="hero-canvas" class="hero-media" aria-hidden="true"></canvas>
+
+      <div class="hero-overlay-dark" aria-hidden="true"></div>
+      <div class="hero-overlay-duotone" aria-hidden="true"></div>
+
+      <div class="hero-particles" aria-hidden="true">
+        <span class="particle green" style="top:18%; left:12%; animation-delay:0s;"></span>
+        <span class="particle purple" style="top:32%; left:78%; animation-delay:.8s;"></span>
+        <span class="particle green" style="top:64%; left:22%; animation-delay:1.6s;"></span>
+        <span class="particle purple" style="top:76%; left:60%; animation-delay:2.2s;"></span>
+        <span class="particle green" style="top:44%; left:88%; animation-delay:3s;"></span>
+        <span class="particle purple" style="top:10%; left:48%; animation-delay:3.6s;"></span>
+        <span class="particle green" style="top:84%; left:38%; animation-delay:4.2s;"></span>
+        <span class="particle purple" style="top:54%; left:6%; animation-delay:4.8s;"></span>
+      </div>
+
+      <div class="hero-content">
+        <div class="wrap hero-main">
+          <div class="hero-copy" data-hero-copy>
+            <div class="trust-badge">
+              <div class="trust-avatars" aria-hidden="true">
+                <span class="avatar"></span>
+                <span class="avatar"></span>
+                <span class="avatar"></span>
+                <span class="avatar"></span>
+                <span class="avatar"></span>
+              </div>
+              <p class="trust-text"><strong>+25 mil alunos</strong> já passaram por aqui</p>
+            </div>
+
+            <div class="eyebrow">
+              <span class="dot"></span>
+              <span>Formação completa em tecnologia</span>
+            </div>
+
+            <h1 class="hero-title">
+              Pare de estudar sem direção. Aprenda tecnologia <span class="accent">do zero ao mercado</span>.
+            </h1>
+
+            <p class="hero-sub">
+              Formações completas em programação, inteligência artificial, automações e dados, com
+              suporte humano, projetos reais e uma comunidade pronta para ajudar você a evoluir.
+            </p>
+
+            <div class="hero-cta-row">
+              <a id="hero-cta" href="#" class="btn btn-primary">
+                Quero ser aluno
+                <span class="btn-arrow" aria-hidden="true">↗</span>
+              </a>
+              <a href="#" class="btn btn-secondary">
+                Conhecer as formações
+                <span class="btn-arrow" aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-acts" data-hero-acts aria-hidden="true">
+            <p class="hero-act" data-act="1">Aprenda com direção</p>
+            <p class="hero-act" data-act="2">Construa projetos reais</p>
+            <p class="hero-act" data-act="3">Evolua com acompanhamento</p>
+          </div>
+        </div>
+
+        <div class="wrap hero-bottom">
+          <p class="hero-proof">Alunos nas maiores empresas do Brasil e do mundo</p>
+          <div class="logo-ticker">
+            <div class="logo-ticker-track">
+              <img src="public/logos/google-logo-transparent.png" alt="Google" />
+              <img src="public/logos/microsoft-logo.png" alt="Microsoft" />
+              <img src="public/logos/intel-logo.svg" alt="Intel" />
+              <img src="public/logos/ifood-logo-png_seeklogo-463141.png" alt="iFood" />
+              <img src="public/logos/mercado-livre-87.png" alt="Mercado Livre" />
+              <img src="public/logos/bradesco-logo-novo-2018-2.png" alt="Bradesco" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reel" class="on-dark" aria-labelledby="reel-heading">
+    <div class="wrap">
+      <div class="reel-head">
+        <div class="eyebrow gs" data-reveal>
+          <span class="dot"></span>
+          <span>Por dentro do DevClub</span>
+        </div>
+        <h2 id="reel-heading" data-reveal class="gs gs-d1">
+          Não é só assistir aula. É entrar em um ecossistema feito para você evoluir.
+        </h2>
+        <p data-reveal class="gs gs-d2">
+          Veja como formações, prática, professores, suporte, comunidade e oportunidades se conectam.
+        </p>
+      </div>
+
+      <div class="reel-frame-wrap">
+        <span class="glow glow-purple" aria-hidden="true"></span>
+        <span class="glow glow-green" aria-hidden="true"></span>
+        <div class="reel-frame gs gs-d3" data-reveal>
+          <div class="reel-screen">
+            <span class="reel-screen-note">Preview em breve</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="reel-caption gs gs-d4" data-reveal>
+        Espaço reservado para o showreel real da plataforma —
+        <span class="accent">entra na próxima iteração</span> deste protótipo.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/reveal.js" defer></script>
+<script src="js/marquee.js" defer></script>
+<script src="js/scroll-video.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>

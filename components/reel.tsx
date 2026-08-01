@@ -1,91 +1,64 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-import { useReducedMotion } from "@/hooks/use-reduced-motion";
-import { reelContent } from "@/lib/site-config";
-
-gsap.registerPlugin(ScrollTrigger);
+import { useReveal } from "@/hooks/use-reveal";
 
 export function Reel() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const reducedMotion = useReducedMotion();
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (reducedMotion || !section) return;
-
-    const targets = section.querySelectorAll<HTMLElement>("[data-reveal]");
-
-    const tween = gsap.fromTo(
-      targets,
-      { autoAlpha: 0, y: 32 },
-      {
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.9,
-        ease: "power3.out",
-        stagger: 0.15,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 75%",
-        },
-      }
-    );
-
-    return () => {
-      tween.scrollTrigger?.kill();
-      tween.kill();
-    };
-  }, [reducedMotion]);
+  const rootRef = useReveal<HTMLDivElement>();
 
   return (
-    <section ref={sectionRef} id="reel" aria-labelledby="reel-heading" className="relative overflow-hidden bg-ink py-28">
+    <section id="reel" aria-labelledby="reel-heading" className="relative overflow-hidden bg-ink py-30 text-white">
       <div
         aria-hidden="true"
-        className="absolute inset-0"
+        className="pointer-events-none absolute inset-x-0 top-0 h-55"
         style={{
           background:
-            "linear-gradient(180deg, color-mix(in srgb, var(--ink) 55%, transparent) 0%, transparent 35%, transparent 65%, color-mix(in srgb, var(--ink) 70%, transparent) 100%)",
+            "radial-gradient(ellipse at 50% 0%, rgba(57,211,83,0.08), transparent 65%), linear-gradient(180deg, rgba(20,19,21,0.9), transparent)",
         }}
       />
 
-      <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-9 px-6 md:px-8">
-        <div data-reveal className="flex max-w-2xl flex-col gap-4.5">
-          <p className="text-xs font-semibold tracking-widest text-brand uppercase">{reelContent.eyebrow}</p>
+      <div ref={rootRef} className="relative mx-auto max-w-wrap px-8">
+        <div className="relative z-10 mb-14 max-w-170">
+          <div data-reveal className="reveal mb-5 flex items-center gap-2 font-display text-xs font-bold tracking-widest text-brand-purple-soft uppercase">
+            <span className="h-2 w-2 shrink-0 rounded-full bg-brand-green" style={{ boxShadow: "0 0 10px #39D353" }} />
+            <span>Por dentro do DevClub</span>
+          </div>
+
           <h2
             id="reel-heading"
-            className="font-display text-3xl leading-none font-light tracking-tight text-white md:text-4xl lg:text-5xl"
+            data-reveal
+            className="reveal delay-75 mb-5 font-display text-reel-heading font-bold leading-reel-heading tracking-reel-heading text-white"
           >
-            {reelContent.heading}
+            Não é só assistir aula. É entrar em um ecossistema feito para você evoluir.
           </h2>
-          <p className="text-base leading-snug text-white/70 md:text-lg lg:text-xl">{reelContent.paragraph}</p>
+
+          <p data-reveal className="reveal delay-150 max-w-135 font-body text-reel-body leading-reel-body text-white/62">
+            Veja como formações, prática, professores, suporte, comunidade e oportunidades se conectam.
+          </p>
         </div>
 
-        <div
-          data-reveal
-          className="relative aspect-video overflow-hidden rounded-2xl border border-white/15 bg-ink"
-          style={{ boxShadow: "0 0 60px color-mix(in srgb, var(--brand-2) 18%, transparent)" }}
-        >
-          <video
-            className="h-full w-full object-cover"
-            src={reelContent.video.src}
-            poster={reelContent.video.poster}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
+        <div className="relative z-10">
+          <span
+            aria-hidden="true"
+            className="absolute -top-20 -left-15 h-85 w-85 rounded-full bg-brand-purple opacity-30 blur-2xl"
+          />
+          <span
+            aria-hidden="true"
+            className="absolute -right-10 -bottom-20 h-75 w-75 rounded-full bg-brand-green opacity-25 blur-2xl"
+          />
+
+          <div
+            data-reveal
+            className="reveal delay-200 relative aspect-video overflow-hidden rounded-card border border-white/10 bg-black"
           >
-            <track kind="captions" />
-          </video>
+            <div className="absolute inset-0 flex items-center justify-center bg-black">
+              <span className="font-body text-xs tracking-widest text-white/25 uppercase">Preview em breve</span>
+            </div>
+          </div>
         </div>
 
-        <p data-reveal className="text-sm tracking-wide text-white/70">
-          {reelContent.captionPrefix} <span className="text-brand">{reelContent.captionHighlight}</span>{" "}
-          {reelContent.captionSuffix}
+        <p data-reveal className="reveal delay-300 relative z-10 mt-6 font-body text-sm text-white/55">
+          Espaço reservado para o showreel real da plataforma —{" "}
+          <span className="text-brand-green-soft">entra na próxima iteração</span> deste protótipo.
         </p>
       </div>
     </section>

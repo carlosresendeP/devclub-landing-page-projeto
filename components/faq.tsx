@@ -4,6 +4,7 @@ import { FiMessageSquare } from "react-icons/fi";
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { useReveal } from "@/hooks/use-reveal";
 
 const PERGUNTAS = [
   {
@@ -38,19 +39,22 @@ const PERGUNTAS = [
 ];
 
 export function Faq() {
+  const rootRef = useReveal<HTMLDivElement>();
+
   return (
     <section id="faq" className="relative overflow-hidden py-24 text-white sm:py-32">
       <div className="mx-auto grid w-full max-w-wrap gap-12 px-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-        <div className="flex flex-col gap-6 lg:sticky lg:top-28 lg:h-fit">
-          <span className="flex items-center gap-2 font-display text-xs font-bold tracking-widest text-brand-purple-soft uppercase">
+        <div ref={rootRef} className="flex flex-col gap-6 lg:sticky lg:top-28 lg:h-fit">
+          <span data-reveal className="reveal flex items-center gap-2 font-display text-xs font-bold tracking-widest text-brand-purple-soft uppercase">
             <span className="h-2 w-2 shrink-0 rounded-full bg-brand-green" style={{ boxShadow: "0 0 10px #39D353" }} />
             Dúvidas
           </span>
-          <h2 className="font-display text-reel-heading font-bold leading-reel-heading tracking-reel-heading text-white">Perguntas que todo futuro aluno faz</h2>
-          <p className="max-w-sm text-base text-white/60">Ainda com dúvida? Fala direto com a gente antes de decidir.</p>
+          <h2 data-reveal className="reveal delay-75 font-display text-reel-heading font-bold leading-reel-heading tracking-reel-heading text-white">Perguntas que todo futuro aluno faz</h2>
+          <p data-reveal className="reveal delay-150 max-w-sm text-base text-white/60">Ainda com dúvida? Fala direto com a gente antes de decidir.</p>
           <a
+            data-reveal
             href="#"
-            className="glass-surface inline-flex w-fit items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-medium text-white/80 transition-colors hover:text-white"
+            className="reveal delay-200 glass-surface inline-flex w-fit items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-medium text-white/80 transition-colors hover:text-white"
           >
             <FiMessageSquare className="size-4 text-brand-purple-soft" />
             Falar com um consultor

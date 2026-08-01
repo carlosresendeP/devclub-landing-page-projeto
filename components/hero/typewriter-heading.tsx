@@ -65,7 +65,10 @@ export function TypewriterHeading() {
         </span>
       </h1>
 
-      <div className="mt-5 flex items-center justify-center flex-col gap-3 sm:flex-row md:justify-start">
+      <div
+        className="mt-5 flex items-center justify-center flex-col gap-3 opacity-0 animate-fade-up sm:flex-row md:justify-start"
+        style={{ animationDelay: "2.9s" }}
+      >
         <div className="flex -space-x-3">
           {SOCIAL_PROOF_AVATARS.map((avatar) => (
             <Image

@@ -9,10 +9,10 @@ export function Reel() {
     <section id="reel" aria-labelledby="reel-heading" className="relative overflow-hidden bg-ink py-30 text-white">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-55"
+        className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse at 50% 0%, rgba(57,211,83,0.08), transparent 65%), linear-gradient(180deg, rgba(20,19,21,0.9), transparent)",
+            "linear-gradient(180deg, color-mix(in srgb, var(--color-ink) 55%, transparent) 0%, transparent 35%, transparent 65%, color-mix(in srgb, var(--color-ink) 70%, transparent) 100%)",
         }}
       />
 
@@ -36,29 +36,46 @@ export function Reel() {
           </p>
         </div>
 
-        <div className="relative z-10">
-          <span
-            aria-hidden="true"
-            className="absolute -top-20 -left-15 h-85 w-85 rounded-full bg-brand-purple opacity-30 blur-2xl"
-          />
-          <span
-            aria-hidden="true"
-            className="absolute -right-10 -bottom-20 h-75 w-75 rounded-full bg-brand-green opacity-25 blur-2xl"
-          />
-
+        <div data-reveal className="reveal delay-200 relative">
           <div
-            data-reveal
-            className="reveal delay-200 relative aspect-video overflow-hidden rounded-card border border-white/10 bg-black"
+            className="relative rounded-[20px] border border-white/15 bg-[#111014] p-3 pb-4 sm:p-4 sm:pb-5"
+            style={{ boxShadow: "0 0 60px color-mix(in srgb, var(--color-brand-purple) 18%, transparent)" }}
           >
-            <div className="absolute inset-0 flex items-center justify-center bg-black">
-              <span className="font-body text-xs tracking-widest text-white/25 uppercase">Preview em breve</span>
+            <div aria-hidden="true" className="mb-2 flex justify-center sm:mb-3">
+              <span className="h-1.5 w-1.5 rounded-full bg-white/15" />
+            </div>
+
+            <div className="relative aspect-video overflow-hidden rounded-lg bg-ink">
+              <video
+                className="h-full w-full object-cover"
+                src="/film/plataforma-film.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              >
+                <track kind="captions" />
+              </video>
             </div>
           </div>
+
+          <div aria-hidden="true" className="h-2 bg-gradient-to-b from-white/10 to-transparent" />
+
+          <div aria-hidden="true" className="laptop-base relative mx-[-5%] h-5 bg-gradient-to-b from-[#232228] to-[#0a0a0a] sm:h-6">
+            <span className="absolute left-1/2 top-0 h-1.5 w-20 -translate-x-1/2 rounded-b-md bg-black/40 sm:w-24" />
+          </div>
+
+          <div
+            aria-hidden="true"
+            className="mx-auto mt-4 h-6 w-[80%] rounded-full blur-2xl"
+            style={{ background: "color-mix(in srgb, var(--color-brand-purple) 22%, transparent)" }}
+          />
         </div>
 
         <p data-reveal className="reveal delay-300 relative z-10 mt-6 font-body text-sm text-white/55">
-          Espaço reservado para o showreel real da plataforma —{" "}
-          <span className="text-brand-green-soft">entra na próxima iteração</span> deste protótipo.
+          Um gostinho da experiência dentro da{" "}
+          <span className="text-brand-green-soft">plataforma DevClub</span>.
         </p>
       </div>
     </section>

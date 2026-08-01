@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import { FiArrowUpRight } from "react-icons/fi";
 import { SiInstagram, SiTiktok, SiYoutube } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
+
+import { useReveal } from "@/hooks/use-reveal";
 
 const COLUNAS = [
   {
@@ -38,15 +42,17 @@ const REDES = [
 ];
 
 export function Footer() {
+  const rootRef = useReveal<HTMLDivElement>();
+
   return (
     <footer className="relative overflow-hidden border-t border-white/10 text-white">
-      <div className="mx-auto w-full max-w-wrap px-8">
+      <div ref={rootRef} className="mx-auto w-full max-w-wrap px-8">
         <div className="flex flex-col items-center gap-6 border-b border-white/10 py-16 text-center sm:py-20">
-          <span className="font-display text-[11px] font-bold tracking-widest text-brand-purple-soft uppercase">matrícula aberta</span>
-          <h2 className="max-w-3xl font-display text-reel-heading font-bold leading-reel-heading tracking-reel-heading text-white">
+          <span data-reveal className="reveal font-display text-[11px] font-bold tracking-widest text-brand-purple-soft uppercase">matrícula aberta</span>
+          <h2 data-reveal className="reveal delay-75 max-w-3xl font-display text-reel-heading font-bold leading-reel-heading tracking-reel-heading text-white">
             Pronto para começar <span className="text-gradient-brand">sua jornada?</span>
           </h2>
-          <a href="#" className="group relative mt-2 inline-flex items-center justify-center rounded-full p-px transition-transform duration-300 hover:scale-[1.03]">
+          <a data-reveal href="#" className="reveal delay-150 group relative mt-2 inline-flex items-center justify-center rounded-full p-px transition-transform duration-300 hover:scale-[1.03]">
             <span aria-hidden className="btn-glow-ring absolute inset-0 rounded-full opacity-90" />
             <span aria-hidden className="absolute inset-px rounded-full bg-black/85 backdrop-blur-xl" />
             <span className="relative z-10 flex items-center gap-2 px-7 py-3 text-sm font-semibold text-white">
@@ -62,7 +68,7 @@ export function Footer() {
               <Image src="/LOGO.webp" alt="DevClub" width={32} height={32} className="brightness-0 invert" />
               <span className="font-display text-sm text-white">DevClub</span>
             </a>
-            <p className="text-sm text-white/60">
+            <p data-reveal className="reveal text-sm text-white/60">
               Escola de programação, gestão de IA, automações e análise de dados, do zero ao avançado, com mentoria semanal e uma comunidade que não te
               deixa parar no meio do caminho.
             </p>
@@ -100,7 +106,7 @@ export function Footer() {
           </div>
         </div>
 
-        <p className="border-t border-white/10 py-8 text-xs text-white/40">© {new Date().getFullYear()} DevClub. Todos os direitos reservados.</p>
+        <p data-reveal className="reveal border-t border-white/10 py-8 text-xs text-white/40">© {new Date().getFullYear()} DevClub. Todos os direitos reservados.</p>
       </div>
     </footer>
   );

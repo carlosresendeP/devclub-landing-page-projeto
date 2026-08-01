@@ -1,5 +1,6 @@
 import { AlemDoCodigo } from "@/components/alem-do-codigo";
 import { BrandOutro } from "@/components/brand-outro";
+import { Depoimentos } from "@/components/depoimentos";
 import { Faq } from "@/components/faq";
 import { Footer } from "@/components/footer";
 import { Formacoes } from "@/components/formacoes";
@@ -9,6 +10,7 @@ import { ModulosBonus } from "@/components/modulos-bonus";
 import { Professores } from "@/components/professores";
 import { ProjetosReais } from "@/components/projetos-reais";
 import { Reel } from "@/components/reel";
+import { Salarios } from "@/components/salarios";
 
 export default function Home() {
   return (
@@ -18,8 +20,10 @@ export default function Home() {
       <Formacoes />
       <AlemDoCodigo />
       <ProjetosReais />
+      <Depoimentos />
       <Professores />
       <ModulosBonus />
+      <Salarios />
       <Garantia />
       <Faq />
       <Footer />

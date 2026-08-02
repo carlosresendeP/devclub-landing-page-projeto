@@ -1,6 +1,7 @@
 import { AlemDoCodigo } from "@/components/alem-do-codigo";
 import { BrandOutro } from "@/components/brand-outro";
 import { Depoimentos } from "@/components/depoimentos";
+import { Empresas } from "@/components/empresas";
 import { Faq } from "@/components/faq";
 import { Footer } from "@/components/footer";
 import { Formacoes } from "@/components/formacoes";
@@ -19,6 +20,7 @@ export default function Home() {
       <Reel />
       <Formacoes />
       <AlemDoCodigo />
+      <Empresas />
       <ProjetosReais />
       <Depoimentos />
       <Professores />

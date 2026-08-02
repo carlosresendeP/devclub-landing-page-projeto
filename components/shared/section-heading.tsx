@@ -15,7 +15,7 @@ export function SectionHeading({ eyebrow, title, lede, align = "left", className
   const rootRef = useReveal<HTMLDivElement>();
 
   return (
-    <div ref={rootRef} className={cn("flex max-w-170 flex-col gap-3", align === "center" && "mx-auto items-center text-center", className)}>
+    <div ref={rootRef} className={cn("flex max-w-200 flex-col gap-3", align === "center" && "mx-auto items-center text-center", className)}>
       <span data-reveal className="reveal flex items-center gap-2 font-display text-xs font-bold tracking-widest text-brand-purple-soft uppercase">
         <span className="h-2 w-2 shrink-0 rounded-full bg-brand-green" style={{ boxShadow: "0 0 10px #39D353" }} />
         {eyebrow}

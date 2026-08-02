@@ -2,12 +2,10 @@
 
 import { UserSearch, HeartPulse, GraduationCap, Bot, Headset, Users, Briefcase, type LucideIcon } from "lucide-react";
 import { FiArrowRight } from "react-icons/fi";
-import Image from "next/image";
 
 import { SectionHeading } from "@/components/shared/section-heading";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
-import { EMPRESAS } from "@/lib/empresas";
 
 interface Beneficio {
   icon: LucideIcon;
@@ -176,17 +174,6 @@ export function AlemDoCodigo() {
             );
           })}
         </div>
-
-        <ScrollReveal delayMs={280} className="mt-16 border-t border-white/10 pt-10">
-          <p className="text-center font-display text-xs font-bold tracking-widest text-white/50 uppercase">Empresas que contratam nossos alunos</p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-5 sm:gap-x-10 sm:gap-y-6">
-            {EMPRESAS.map((empresa) => (
-              <div key={empresa.alt} className="flex h-7 w-20 shrink-0 items-center justify-center opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-10 sm:w-28">
-                <Image src={empresa.src} alt={empresa.alt} width={112} height={40} className="h-full w-full object-contain" />
-              </div>
-            ))}
-          </div>
-        </ScrollReveal>
       </div>
     </section>
   );

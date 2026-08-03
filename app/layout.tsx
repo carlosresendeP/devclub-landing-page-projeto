@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Albert_Sans, Urbanist, Inter } from "next/font/google";
 import { GlobalBackground } from "@/components/ui/global-background";
+import { Preloader } from "@/components/layout/preloader";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -41,6 +42,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${manrope.variable} ${albertSans.variable} ${urbanist.variable} ${inter.variable}`}>
       <body className="bg-ink font-sans text-white antialiased">
+        <Preloader />
         <GlobalBackground />
         <div className="relative z-10">{children}</div>
       </body>

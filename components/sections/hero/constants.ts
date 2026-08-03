@@ -1,4 +1,5 @@
-export const VIDEO_SRC = "/film/hero-film.mp4";
+export const FRAME_COUNT = 90;
+export const FRAME_SRC = (index: number) => `/frames/frame-${String(index).padStart(3, "0")}.webp`;
 
 export const TYPEWRITER_TEXT = "Pare de estudar sem direção. Aprenda tecnologia do zero ao mercado.";
 export const TYPEWRITER_SPLIT = 48;
@@ -38,7 +39,8 @@ export const SOCIAL_PROOF_AVATARS = [
 ];
 
 import type { IconType } from "react-icons";
-import { SiCss, SiHtml5, SiJavascript, SiReact, SiTypescript } from "react-icons/si";
+import { SiCss, SiHtml5, SiJavascript, SiMongodb, SiNodedotjs, SiReact, SiTailwindcss, SiTypescript } from "react-icons/si";
+import { TbDatabase } from "react-icons/tb";
 
 type AvatarBase = {
   orbit: 1 | 2 | 3 | 4;
@@ -56,16 +58,17 @@ export type Avatar = AvatarBase &
 export const AVATARS: Avatar[] = [
   // Orbit 4 (399px)
   {
-    kind: "photo",
+    kind: "icon",
     orbit: 4,
     angle: 0,
     radius: 399,
     size: 88,
-    shape: "round",
+    shape: "square-24",
     glow: "purple",
     delay: 1.5,
-    src: "/professores/Agustinho.webp",
-    alt: "Agustinho",
+    Icon: SiHtml5,
+    color: "#E34F26",
+    label: "HTML5",
   },
   {
     kind: "icon",
@@ -76,21 +79,22 @@ export const AVATARS: Avatar[] = [
     shape: "square-24",
     glow: "orange",
     delay: 1.7,
-    Icon: SiHtml5,
-    color: "#E34F26",
-    label: "HTML5",
+    Icon: SiNodedotjs,
+    color: "#339933",
+    label: "Node.js",
   },
   {
-    kind: "photo",
+    kind: "icon",
     orbit: 4,
     angle: 240,
     radius: 399,
     size: 88,
-    shape: "round",
+    shape: "square-24",
     glow: "pink",
     delay: 1.9,
-    src: "/professores/Henrique.webp",
-    alt: "Henrique",
+    Icon: SiMongodb,
+    color: "#47A248",
+    label: "MongoDB",
   },
   // Orbit 3 (325px)
   {
@@ -107,16 +111,17 @@ export const AVATARS: Avatar[] = [
     label: "CSS3",
   },
   {
-    kind: "photo",
+    kind: "icon",
     orbit: 3,
     angle: 160,
     radius: 325,
     size: 78,
-    shape: "round",
+    shape: "square-20",
     glow: "blue",
     delay: 1.3,
-    src: "/professores/Juliana.webp",
-    alt: "Juliana",
+    Icon: SiJavascript,
+    color: "#F7DF1E",
+    label: "JavaScript",
   },
   {
     kind: "icon",
@@ -127,27 +132,15 @@ export const AVATARS: Avatar[] = [
     shape: "square-20",
     glow: "purple",
     delay: 1.5,
-    Icon: SiJavascript,
-    color: "#F7DF1E",
-    label: "JavaScript",
+    Icon: SiTailwindcss,
+    color: "#38BDF8",
+    label: "Tailwind CSS",
   },
   // Orbit 2 (251px)
   {
-    kind: "photo",
-    orbit: 2,
-    angle: 80,
-    radius: 251,
-    size: 58,
-    shape: "round",
-    glow: "yellow",
-    delay: 0.8,
-    src: "/professores/Mateus - Especialista em IA.webp",
-    alt: "Mateus",
-  },
-  {
     kind: "icon",
     orbit: 2,
-    angle: 200,
+    angle: 90,
     radius: 251,
     size: 58,
     shape: "square-20",
@@ -158,16 +151,17 @@ export const AVATARS: Avatar[] = [
     label: "React",
   },
   {
-    kind: "photo",
+    kind: "icon",
     orbit: 2,
-    angle: 320,
+    angle: 270,
     radius: 251,
     size: 58,
-    shape: "round",
-    glow: "pink",
+    shape: "square-20",
+    glow: "yellow",
     delay: 1.2,
-    src: "/professores/Rodolfo Mori.webp",
-    alt: "Rodolfo Mori",
+    Icon: TbDatabase,
+    color: "#F2C94C",
+    label: "Banco de Dados",
   },
   // Orbit 1 (177px)
   {

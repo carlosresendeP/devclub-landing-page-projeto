@@ -1,6 +1,6 @@
 "use client";
 
-import { Header } from "@/components/header";
+import { Header } from "@/components/layout/header";
 import { HeroActs } from "./hero-acts";
 import { HeroCircles } from "./hero-circles";
 import { HeroCta } from "./hero-cta";
@@ -10,7 +10,7 @@ import { TypewriterHeading } from "./typewriter-heading";
 import { useHeroScrollVideo } from "./use-scroll-video";
 
 export function Hero() {
-  const { wrapperRef, videoRef, canvasRef, heroContentRef, heroActsRef } = useHeroScrollVideo();
+  const { wrapperRef, canvasRef, heroContentRef, heroActsRef } = useHeroScrollVideo();
 
   return (
     <section
@@ -24,13 +24,6 @@ export function Hero() {
         <StarField wrapperRef={wrapperRef} />
 
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 overflow-hidden bg-ink">
-          <video
-            ref={videoRef}
-            className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500"
-            muted
-            playsInline
-            preload="auto"
-          />
           <canvas
             ref={canvasRef}
             className="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-500"

@@ -1,17 +1,18 @@
-import { AlemDoCodigo } from "@/components/alem-do-codigo";
-import { BrandOutro } from "@/components/brand-outro";
-import { Depoimentos } from "@/components/depoimentos";
-import { Empresas } from "@/components/empresas";
-import { Faq } from "@/components/faq";
-import { Footer } from "@/components/footer";
-import { Formacoes } from "@/components/formacoes";
-import { Garantia } from "@/components/garantia";
-import { Hero } from "@/components/hero";
-import { ModulosBonus } from "@/components/modulos-bonus";
-import { Professores } from "@/components/professores";
-import { ProjetosReais } from "@/components/projetos-reais";
-import { Reel } from "@/components/reel";
-import { Salarios } from "@/components/salarios";
+import { AlemDoCodigo } from "@/components/sections/alem-do-codigo";
+import { BrandOutro } from "@/components/sections/brand-outro";
+import { Depoimentos } from "@/components/sections/depoimentos";
+import { Empresas } from "@/components/sections/empresas";
+import { Faq } from "@/components/sections/faq";
+import { Footer } from "@/components/sections/footer";
+import { Formacoes } from "@/components/sections/formacoes";
+import { Garantia } from "@/components/sections/garantia";
+import { Hero } from "@/components/sections/hero";
+import { ModulosBonus } from "@/components/sections/modulos-bonus";
+import { Professores } from "@/components/sections/professores";
+import { ProjetosReais } from "@/components/sections/projetos-reais";
+import { Reel } from "@/components/sections/reel";
+import { Salarios } from "@/components/sections/salarios";
+import { Tecnologias } from "@/components/sections/tecnologias";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <AlemDoCodigo />
       <Empresas />
       <ProjetosReais />
+      <Tecnologias />
       <Depoimentos />
       <Professores />
       <ModulosBonus />

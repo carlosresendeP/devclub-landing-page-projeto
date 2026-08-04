@@ -19,6 +19,5 @@ export const EMPRESAS: Empresa[] = [
   { src: "/logos/Nubank_logo.svg.webp", alt: "Nubank" },
   { src: "/logos/nvidia-logo.png", alt: "NVIDIA" },
   { src: "/logos/PlayStation-Logo.wine.svg", alt: "PlayStation" },
-  { src: "/logos/TV_Globo_logo_(April_2025).png", alt: "TV Globo" },
   { src: "/logos/WEG_Equipamentos_Elétricos.svg.webp", alt: "WEG" },
 ];

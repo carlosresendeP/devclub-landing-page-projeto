@@ -59,16 +59,13 @@ export function TypewriterHeading() {
         className="font-accent text-hero-heading font-semibold leading-hero-heading tracking-hero-heading"
       >
         <span aria-hidden="true">
-          <span ref={dimRef} className="text-white/55" />
-          <span ref={brightRef} className="text-white" />
+          <span ref={dimRef} className="text-white/85" />
+          <span ref={brightRef} className="text-gradient-brand" />
           <span ref={cursorRef} className="tw-cursor" />
         </span>
       </h1>
 
-      <div
-        className="mt-5 flex items-center justify-center flex-col gap-3 opacity-0 animate-fade-up sm:flex-row md:justify-start"
-        style={{ animationDelay: "2.9s" }}
-      >
+      <div className="mt-5 flex items-center justify-center flex-col gap-3 opacity-0 animate-fade-up [animation-delay:2.9s] sm:flex-row md:justify-start">
         <div className="flex -space-x-3">
           {SOCIAL_PROOF_AVATARS.map((avatar) => (
             <Image

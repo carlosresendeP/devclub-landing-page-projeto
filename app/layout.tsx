@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Manrope, Albert_Sans, Urbanist, Inter } from "next/font/google";
 import { GlobalBackground } from "@/components/ui/global-background";
+import { Header } from "@/components/layout/header";
 import { Preloader } from "@/components/layout/preloader";
+import { PreloaderProvider } from "@/components/layout/preloader-context";
+import { SmoothScroll } from "@/components/layout/smooth-scroll";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -29,7 +32,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "DevClub — Pare de estudar sem direção",
+  title: "DevClub — Programação",
   description:
     "Formações completas em programação, inteligência artificial, automações e dados, com suporte humano, projetos reais e comunidade.",
 };
@@ -42,9 +45,13 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${manrope.variable} ${albertSans.variable} ${urbanist.variable} ${inter.variable}`}>
       <body className="bg-ink font-sans text-white antialiased">
-        <Preloader />
-        <GlobalBackground />
-        <div className="relative z-10">{children}</div>
+        <PreloaderProvider>
+          <Preloader />
+          <SmoothScroll />
+          <GlobalBackground />
+          <Header />
+          <div className="relative z-10">{children}</div>
+        </PreloaderProvider>
       </body>
     </html>
   );

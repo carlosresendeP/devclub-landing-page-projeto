@@ -4,6 +4,7 @@ import { ArrowUpRight, Play, Quote } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { SectionHeading } from "@/components/shared/section-heading";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import { DEPOIMENTOS, type Depoimento } from "@/lib/depoimentos";
@@ -40,7 +41,7 @@ function DepoimentoCard({ item }: { item: Depoimento }) {
 
 function DepoimentoMosaicCard({ item }: { item: Depoimento }) {
   return (
-    <article className="mb-4 flex break-inside-avoid flex-col gap-4 rounded-2xl border border-border bg-card/60 p-5 backdrop-blur-sm sm:flex-row sm:items-stretch">
+    <article className="flex h-full flex-col gap-4 rounded-2xl border border-border bg-card/60 p-5 backdrop-blur-sm sm:flex-row sm:items-stretch">
       <div className="flex flex-1 flex-col gap-4">
         <Quote className="size-5 text-primary/60" />
         <p className="text-sm leading-relaxed text-foreground/90">
@@ -160,31 +161,37 @@ export function Depoimentos() {
           </TabsList>
 
           <TabsContent value="grade" className="mt-10">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              <DepoimentoColumn items={COLUMNS[0]} duration="34s" />
-              <DepoimentoColumn items={COLUMNS[1]} duration="42s" reverse />
-              <DepoimentoColumn items={COLUMNS[2]} duration="38s" className="hidden lg:block" />
-            </div>
+            <ScrollReveal>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <DepoimentoColumn items={COLUMNS[0]} duration="34s" />
+                <DepoimentoColumn items={COLUMNS[1]} duration="42s" reverse />
+                <DepoimentoColumn items={COLUMNS[2]} duration="38s" className="hidden lg:block" />
+              </div>
+            </ScrollReveal>
           </TabsContent>
 
           <TabsContent value="mosaico" className="mt-10">
             <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
-              {DEPOIMENTOS.map((item) => (
-                <DepoimentoMosaicCard key={item.name} item={item} />
+              {DEPOIMENTOS.map((item, index) => (
+                <ScrollReveal key={item.name} delayMs={(index % 3) * 80} className="mb-4 break-inside-avoid">
+                  <DepoimentoMosaicCard item={item} />
+                </ScrollReveal>
               ))}
             </div>
           </TabsContent>
 
           <TabsContent value="lista" className="mt-10">
             <div className="mx-auto flex max-w-4xl flex-col gap-4">
-              {DEPOIMENTOS.map((item) => (
-                <DepoimentoListCard key={item.name} item={item} />
+              {DEPOIMENTOS.map((item, index) => (
+                <ScrollReveal key={item.name} delayMs={index * 60}>
+                  <DepoimentoListCard item={item} />
+                </ScrollReveal>
               ))}
             </div>
           </TabsContent>
         </Tabs>
 
-        <div className="mt-14 flex justify-center">
+        <ScrollReveal className="mt-14 flex justify-center">
           <Link
             href={STARS_URL}
             target="_blank"
@@ -194,7 +201,7 @@ export function Depoimentos() {
             Ver todas as histórias
             <ArrowUpRight className="size-4" />
           </Link>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

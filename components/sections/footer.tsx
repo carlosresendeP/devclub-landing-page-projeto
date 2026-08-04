@@ -52,19 +52,20 @@ export function Footer() {
           <h2 data-reveal className="reveal delay-75 max-w-3xl font-display text-reel-heading font-bold leading-reel-heading tracking-reel-heading text-white">
             Pronto para começar <span className="text-gradient-brand">sua jornada?</span>
           </h2>
-          <a data-reveal href="#" className="reveal delay-150 group relative mt-2 inline-flex items-center justify-center rounded-full p-px transition-transform duration-300 hover:scale-[1.03]">
-            <span aria-hidden className="btn-glow-ring absolute inset-0 rounded-full opacity-90" />
-            <span aria-hidden className="absolute inset-px rounded-full bg-black/85 backdrop-blur-xl" />
-            <span className="relative z-10 flex items-center gap-2 px-7 py-3 text-sm font-semibold text-white">
-              Quero ser aluno
-              <FiArrowUpRight className="size-4" />
-            </span>
-          </a>
+          <div data-reveal className="reveal delay-150 gradient-border-pill mt-2 inline-block">
+            <a href="#" className="group relative z-10 inline-flex items-center overflow-hidden rounded-full bg-ink-button px-7 py-3.5 text-sm font-medium text-white">
+              <span className="pointer-events-none absolute inset-0 translate-x-full bg-accent transition-transform duration-300 ease-pop group-hover:translate-x-0" />
+              <span className="relative z-10 inline-flex items-center gap-2">
+                Quero ser aluno
+                <FiArrowUpRight className="size-4" />
+              </span>
+            </a>
+          </div>
         </div>
 
         <div className="flex flex-col gap-12 py-14 lg:flex-row lg:justify-between">
           <div className="flex max-w-sm flex-col gap-5">
-            <a href="/" className="flex items-center gap-2">
+            <a href="#" className="flex items-center gap-2">
               <Image src="/LOGO.webp" alt="DevClub" width={32} height={32} className="brightness-0 invert" />
               <span className="font-display text-sm text-white">DevClub</span>
             </a>

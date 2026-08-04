@@ -1,5 +1,6 @@
 import { AlemDoCodigo } from "@/components/sections/alem-do-codigo";
 import { BrandOutro } from "@/components/sections/brand-outro";
+import { Certificado } from "@/components/sections/certificado";
 import { Depoimentos } from "@/components/sections/depoimentos";
 import { Empresas } from "@/components/sections/empresas";
 import { Faq } from "@/components/sections/faq";
@@ -26,6 +27,7 @@ export default function Home() {
       <Tecnologias />
       <Depoimentos />
       <Professores />
+      <Certificado />
       <ModulosBonus />
       <Salarios />
       <Garantia />

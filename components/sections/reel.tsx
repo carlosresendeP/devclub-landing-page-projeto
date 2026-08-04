@@ -6,15 +6,7 @@ export function Reel() {
   const rootRef = useReveal<HTMLDivElement>();
 
   return (
-    <section id="reel" aria-labelledby="reel-heading" className="relative overflow-hidden bg-ink py-30 text-white">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, color-mix(in srgb, var(--color-ink) 55%, transparent) 0%, transparent 35%, transparent 65%, color-mix(in srgb, var(--color-ink) 70%, transparent) 100%)",
-        }}
-      />
+    <section id="reel" aria-labelledby="reel-heading" className="relative overflow-hidden bg-linear-to-b from-ink to-transparent py-30 text-white">
 
       <div ref={rootRef} className="relative mx-auto max-w-wrap px-8">
         <div className="relative z-10 mb-14 max-w-170">
@@ -28,7 +20,8 @@ export function Reel() {
             data-reveal
             className="reveal delay-75 mb-5 font-display text-reel-heading font-bold leading-reel-heading tracking-reel-heading text-white"
           >
-            Não é só assistir aula. É entrar em um ecossistema feito para você evoluir.
+            Não é só assistir aula. É entrar em um <span className="text-brand-green-soft">ecossistema</span> feito para
+            você <span className="text-brand-purple-soft">evoluir</span>.
           </h2>
 
           <p data-reveal className="reveal delay-150 max-w-135 font-body text-reel-body leading-reel-body text-white/62">

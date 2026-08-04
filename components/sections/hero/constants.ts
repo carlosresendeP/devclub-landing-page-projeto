@@ -1,8 +1,8 @@
 export const FRAME_COUNT = 90;
 export const FRAME_SRC = (index: number) => `/frames/frame-${String(index).padStart(3, "0")}.webp`;
 
-export const TYPEWRITER_TEXT = "Pare de estudar sem direção. Aprenda tecnologia do zero ao mercado.";
-export const TYPEWRITER_SPLIT = 48;
+export const TYPEWRITER_TEXT = "Programação não é o destino. É o começo da sua nova carreira.";
+export const TYPEWRITER_SPLIT = 43;
 export const TYPEWRITER_SPEED = 35;
 export const TYPEWRITER_DELAY = 400;
 
@@ -22,7 +22,6 @@ export const LOGOS = [
   { src: "/logos/Nubank_logo.svg.webp", alt: "Nubank" },
   { src: "/logos/nvidia-logo.png", alt: "NVIDIA" },
   { src: "/logos/PlayStation-Logo.wine.svg", alt: "PlayStation" },
-  { src: "/logos/TV_Globo_logo_(April_2025).png", alt: "TV Globo" },
   { src: "/logos/WEG_Equipamentos_Elétricos.svg.webp", alt: "WEG" },
 ];
 

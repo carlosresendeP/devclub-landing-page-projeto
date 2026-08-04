@@ -195,6 +195,15 @@ html {
 }
 
 /* ============== REUSABLE UTILITIES ============== */
+@utility scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 @utility mask-fade-x {
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
@@ -423,6 +432,34 @@ html {
   offset-path: path("M 30 30 h 25 q 5 0 5 5 v 6.5 q 0 5 5 5 h 20");
   animation-delay: 2.85s;
 }
+.tech-light-9 {
+  offset-path: path("M 55 8 h 28 q 5 0 5 5 v 35");
+  animation-delay: 3.1s;
+}
+.tech-light-10 {
+  offset-path: path("M 75 12 h 19 q 5 0 5 5 v 31");
+  animation-delay: 3.35s;
+}
+.tech-light-11 {
+  offset-path: path("M 150 8 h -34 q -5 0 -5 5 v 35");
+  animation-delay: 3.6s;
+}
+.tech-light-12 {
+  offset-path: path("M 185 45 v 7 q 0 5 -5 5 h -65");
+  animation-delay: 3.85s;
+}
+.tech-light-13 {
+  offset-path: path("M 15 60 v 2 q 0 -5 5 -5 h 65");
+  animation-delay: 4.1s;
+}
+.tech-light-14 {
+  offset-path: path("M 25 85 h 58 q 5 0 5 -5 v -20");
+  animation-delay: 4.35s;
+}
+.tech-light-15 {
+  offset-path: path("M 50 92 h 55 q 5 0 5 -5 v -27");
+  animation-delay: 4.6s;
+}
 
 @keyframes tech-flow {
   0% {
@@ -497,6 +534,95 @@ html {
 .hero-act-active {
   opacity: 1;
   transform: translate(-50%, -50%);
+}
+
+/* ============== FAN CARD CAROUSEL ============== */
+.fan-layout {
+  position: relative;
+  height: min(25rem, 70vh);
+}
+@media (min-width: 480px) {
+  .fan-layout {
+    height: min(29rem, 70vh);
+  }
+}
+@media (min-width: 640px) {
+  .fan-layout {
+    height: min(32rem, 70vh);
+  }
+}
+@media (min-width: 768px) {
+  .fan-layout {
+    height: min(38rem, 70vh);
+  }
+}
+@media (min-width: 1024px) {
+  .fan-layout {
+    height: min(43rem, 70vh);
+  }
+}
+
+.fan-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8.5rem;
+  height: 11.5rem;
+  margin-left: -4.25rem;
+  margin-top: -5.75rem;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+@media (min-width: 480px) {
+  .fan-card {
+    width: 9.75rem;
+    height: 13.5rem;
+    margin-left: -4.875rem;
+    margin-top: -6.75rem;
+  }
+}
+@media (min-width: 640px) {
+  .fan-card {
+    width: 11rem;
+    height: 15rem;
+    margin-left: -5.5rem;
+    margin-top: -7.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .fan-card {
+    width: 13rem;
+    height: 17.5rem;
+    margin-left: -6.5rem;
+    margin-top: -8.75rem;
+  }
+}
+@media (min-width: 1024px) {
+  .fan-card {
+    width: 15rem;
+    height: 20rem;
+    margin-left: -7.5rem;
+    margin-top: -10rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .fan-layout {
+    height: min(24rem, 62vh);
+  }
+  .fan-card {
+    width: 16rem;
+    height: 21.5rem;
+    margin-left: -8rem;
+    margin-top: -10.75rem;
+  }
+  .fan-card:not(.is-active) {
+    opacity: 0 !important;
+    pointer-events: none;
+  }
 }
 
 /* ============== REVEAL ON SCROLL ============== */

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
@@ -11,11 +11,25 @@ const NAV_LINKS = [
   { label: "Comunidade", href: "#" },
 ];
 
+const SCROLL_THRESHOLD = 140;
+
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > SCROLL_THRESHOLD);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="relative z-10">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
+        scrolled ? "glass-surface" : "border-transparent bg-transparent"
+      }`}
+    >
       <div className="mx-auto flex max-w-mkt items-center justify-between px-10 py-4">
         <div className="flex items-center gap-11">
           <Image src="/LOGO.webp" alt="DevClub" width={100} height={100} className="h-7 w-auto brightness-0 invert" />

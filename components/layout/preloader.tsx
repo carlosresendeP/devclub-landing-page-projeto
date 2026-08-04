@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import DecryptedText from "@/components/ui/decrypted-text";
+import { useMarkPreloaderReady } from "@/components/layout/preloader-context";
 
 const DURATION = 1500;
 
@@ -11,6 +12,7 @@ export function Preloader() {
   const [progress, setProgress] = useState(0);
   const [hidden, setHidden] = useState(false);
   const reducedMotionRef = useRef(false);
+  const markReady = useMarkPreloaderReady();
 
   useEffect(() => {
     reducedMotionRef.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -18,6 +20,7 @@ export function Preloader() {
     if (reducedMotionRef.current) {
       setProgress(100);
       setHidden(true);
+      markReady();
       return;
     }
 
@@ -32,13 +35,16 @@ export function Preloader() {
       if (elapsed < DURATION) {
         raf = requestAnimationFrame(tick);
       } else {
-        window.setTimeout(() => setHidden(true), 350);
+        window.setTimeout(() => {
+          setHidden(true);
+          markReady();
+        }, 350);
       }
     };
 
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, []);
+  }, [markReady]);
 
   useEffect(() => {
     const { style } = document.documentElement;
@@ -52,7 +58,7 @@ export function Preloader() {
     <AnimatePresence>
       {!hidden && (
         <motion.div
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-10 bg-background"
+          className="fixed inset-0 z-100 flex flex-col items-center justify-center gap-10 bg-background"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, filter: "blur(12px)" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}

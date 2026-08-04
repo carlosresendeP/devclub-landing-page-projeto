@@ -70,6 +70,27 @@ function TechCpuSvg({ animate }: { animate: boolean }) {
         <path strokeDasharray="100 100" pathLength="100" d="M 30 30 h 25 q 5 0 5 5 v 6.5 q 0 5 5 5 h 20">
           {animate && <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1s" fill="freeze" calcMode="spline" keySplines="0.25,0.1,0.5,1" keyTimes="0; 1" />}
         </path>
+        <path strokeDasharray="100 100" pathLength="100" d="M 55 8 h 28 q 5 0 5 5 v 35">
+          {animate && <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1s" fill="freeze" calcMode="spline" keySplines="0.25,0.1,0.5,1" keyTimes="0; 1" />}
+        </path>
+        <path strokeDasharray="100 100" pathLength="100" d="M 75 12 h 19 q 5 0 5 5 v 31">
+          {animate && <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1s" fill="freeze" calcMode="spline" keySplines="0.25,0.1,0.5,1" keyTimes="0; 1" />}
+        </path>
+        <path strokeDasharray="100 100" pathLength="100" d="M 150 8 h -34 q -5 0 -5 5 v 35">
+          {animate && <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1s" fill="freeze" calcMode="spline" keySplines="0.25,0.1,0.5,1" keyTimes="0; 1" />}
+        </path>
+        <path strokeDasharray="100 100" pathLength="100" d="M 185 45 v 7 q 0 5 -5 5 h -65">
+          {animate && <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1s" fill="freeze" calcMode="spline" keySplines="0.25,0.1,0.5,1" keyTimes="0; 1" />}
+        </path>
+        <path strokeDasharray="100 100" pathLength="100" d="M 15 60 v 2 q 0 -5 5 -5 h 65">
+          {animate && <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1s" fill="freeze" calcMode="spline" keySplines="0.25,0.1,0.5,1" keyTimes="0; 1" />}
+        </path>
+        <path strokeDasharray="100 100" pathLength="100" d="M 25 85 h 58 q 5 0 5 -5 v -20">
+          {animate && <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1s" fill="freeze" calcMode="spline" keySplines="0.25,0.1,0.5,1" keyTimes="0; 1" />}
+        </path>
+        <path strokeDasharray="100 100" pathLength="100" d="M 50 92 h 55 q 5 0 5 -5 v -27">
+          {animate && <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1s" fill="freeze" calcMode="spline" keySplines="0.25,0.1,0.5,1" keyTimes="0; 1" />}
+        </path>
       </g>
 
       {/* Traveling light pulses, one per trace, flowing into the chip */}
@@ -83,6 +104,13 @@ function TechCpuSvg({ animate }: { animate: boolean }) {
           <g mask="url(#tech-mask-6)"><circle className="tech-light tech-light-6" cx="0" cy="0" r="8" fill="url(#tech-orange-grad)" /></g>
           <g mask="url(#tech-mask-7)"><circle className="tech-light tech-light-7" cx="0" cy="0" r="8" fill="url(#tech-cyan-grad)" /></g>
           <g mask="url(#tech-mask-8)"><circle className="tech-light tech-light-8" cx="0" cy="0" r="8" fill="url(#tech-rose-grad)" /></g>
+          <g mask="url(#tech-mask-9)"><circle className="tech-light tech-light-9" cx="0" cy="0" r="8" fill="url(#tech-red-grad)" /></g>
+          <g mask="url(#tech-mask-10)"><circle className="tech-light tech-light-10" cx="0" cy="0" r="8" fill="url(#tech-indigo-grad)" /></g>
+          <g mask="url(#tech-mask-11)"><circle className="tech-light tech-light-11" cx="0" cy="0" r="8" fill="url(#tech-violet-grad)" /></g>
+          <g mask="url(#tech-mask-12)"><circle className="tech-light tech-light-12" cx="0" cy="0" r="8" fill="url(#tech-fuchsia-grad)" /></g>
+          <g mask="url(#tech-mask-13)"><circle className="tech-light tech-light-13" cx="0" cy="0" r="8" fill="url(#tech-amber-grad)" /></g>
+          <g mask="url(#tech-mask-14)"><circle className="tech-light tech-light-14" cx="0" cy="0" r="8" fill="url(#tech-sky-grad)" /></g>
+          <g mask="url(#tech-mask-15)"><circle className="tech-light tech-light-15" cx="0" cy="0" r="8" fill="url(#tech-teal-grad)" /></g>
         </>
       )}
 
@@ -97,6 +125,15 @@ function TechCpuSvg({ animate }: { animate: boolean }) {
           <rect x="114.5" y="16" width="2.5" height="5" rx="0.7" transform="rotate(180 105.25 39.5)" />
           <rect x="80" y="-13.6" width="2.5" height="5" rx="0.7" transform="rotate(270 115.25 19.5)" />
           <rect x="87" y="-13.6" width="2.5" height="5" rx="0.7" transform="rotate(270 115.25 19.5)" />
+
+          {/* Extra pins added for the expanded stack */}
+          <rect x="86.75" y="37" width="2.5" height="5" rx="0.7" />
+          <rect x="97.75" y="37" width="2.5" height="5" rx="0.7" />
+          <rect x="109.75" y="37" width="2.5" height="5" rx="0.7" />
+          <rect x="115" y="55.75" width="5" height="2.5" rx="0.7" />
+          <rect x="80" y="55.75" width="5" height="2.5" rx="0.7" />
+          <rect x="86.75" y="58" width="2.5" height="5" rx="0.7" />
+          <rect x="108.75" y="58" width="2.5" height="5" rx="0.7" />
         </g>
 
         <rect x="85" y="40" width="30" height="20" rx="2" fill="#181818" filter="url(#tech-light-shadow)" />
@@ -123,6 +160,13 @@ function TechCpuSvg({ animate }: { animate: boolean }) {
         <mask id="tech-mask-6"><path d="M 94.8 95 v -36" strokeWidth="0.5" stroke="white" /></mask>
         <mask id="tech-mask-7"><path d="M 88 88 v -15 q 0 -5 -5 -5 h -10 q -5 0 -5 -5 v -5 q 0 -5 5 -5 h 14" strokeWidth="0.5" stroke="white" /></mask>
         <mask id="tech-mask-8"><path d="M 30 30 h 25 q 5 0 5 5 v 6.5 q 0 5 5 5 h 20" strokeWidth="0.5" stroke="white" /></mask>
+        <mask id="tech-mask-9"><path d="M 55 8 h 28 q 5 0 5 5 v 35" strokeWidth="0.5" stroke="white" /></mask>
+        <mask id="tech-mask-10"><path d="M 75 12 h 19 q 5 0 5 5 v 31" strokeWidth="0.5" stroke="white" /></mask>
+        <mask id="tech-mask-11"><path d="M 150 8 h -34 q -5 0 -5 5 v 35" strokeWidth="0.5" stroke="white" /></mask>
+        <mask id="tech-mask-12"><path d="M 185 45 v 7 q 0 5 -5 5 h -65" strokeWidth="0.5" stroke="white" /></mask>
+        <mask id="tech-mask-13"><path d="M 15 60 v 2 q 0 -5 5 -5 h 65" strokeWidth="0.5" stroke="white" /></mask>
+        <mask id="tech-mask-14"><path d="M 25 85 h 58 q 5 0 5 -5 v -20" strokeWidth="0.5" stroke="white" /></mask>
+        <mask id="tech-mask-15"><path d="M 50 92 h 55 q 5 0 5 -5 v -27" strokeWidth="0.5" stroke="white" /></mask>
 
         <radialGradient id="tech-blue-grad" fx="1">
           <stop offset="0%" stopColor="#00E8ED" />
@@ -157,6 +201,34 @@ function TechCpuSvg({ animate }: { animate: boolean }) {
         </radialGradient>
         <radialGradient id="tech-rose-grad" fx="1">
           <stop offset="0%" stopColor="#f43f5e" />
+          <stop offset="100%" stopColor="transparent" />
+        </radialGradient>
+        <radialGradient id="tech-red-grad" fx="1">
+          <stop offset="0%" stopColor="#EF4444" />
+          <stop offset="100%" stopColor="transparent" />
+        </radialGradient>
+        <radialGradient id="tech-indigo-grad" fx="1">
+          <stop offset="0%" stopColor="#6366F1" />
+          <stop offset="100%" stopColor="transparent" />
+        </radialGradient>
+        <radialGradient id="tech-violet-grad" fx="1">
+          <stop offset="0%" stopColor="#A66BF0" />
+          <stop offset="100%" stopColor="transparent" />
+        </radialGradient>
+        <radialGradient id="tech-fuchsia-grad" fx="1">
+          <stop offset="0%" stopColor="#D946EF" />
+          <stop offset="100%" stopColor="transparent" />
+        </radialGradient>
+        <radialGradient id="tech-amber-grad" fx="1">
+          <stop offset="0%" stopColor="#F2C811" />
+          <stop offset="100%" stopColor="transparent" />
+        </radialGradient>
+        <radialGradient id="tech-sky-grad" fx="1">
+          <stop offset="0%" stopColor="#38BDF8" />
+          <stop offset="100%" stopColor="transparent" />
+        </radialGradient>
+        <radialGradient id="tech-teal-grad" fx="1">
+          <stop offset="0%" stopColor="#14B8A6" />
           <stop offset="100%" stopColor="transparent" />
         </radialGradient>
 

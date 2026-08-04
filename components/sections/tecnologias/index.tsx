@@ -1,7 +1,8 @@
 "use client";
 
-import { FaNodeJs, FaReact } from "react-icons/fa";
-import { SiMongodb, SiNextdotjs, SiPrisma, SiStripe, SiTailwindcss, SiTypescript } from "react-icons/si";
+import { FaDatabase, FaNodeJs, FaReact } from "react-icons/fa";
+import { SiCss, SiHtml5, SiMongodb, SiN8N, SiNextdotjs, SiPostgresql, SiPrisma, SiStripe, SiTailwindcss, SiTypescript } from "react-icons/si";
+import { TbBrain, TbChartBar } from "react-icons/tb";
 import type { IconType } from "react-icons";
 
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -26,6 +27,13 @@ const TECNOLOGIAS: Tecnologia[] = [
   { name: "MongoDB", icon: SiMongodb, color: "#47A248", x: 94.8, y: 95 },
   { name: "Prisma", icon: SiPrisma, color: "#8181F7", x: 88, y: 88 },
   { name: "Stripe", icon: SiStripe, color: "#635BFF", x: 30, y: 30 },
+  { name: "HTML", icon: SiHtml5, color: "#E34F26", x: 55, y: 8 },
+  { name: "CSS", icon: SiCss, color: "#1572B6", x: 75, y: 12 },
+  { name: "IA", icon: TbBrain, color: "#A66BF0", x: 150, y: 8 },
+  { name: "n8n", icon: SiN8N, color: "#EA4B71", x: 185, y: 45 },
+  { name: "Power BI", icon: TbChartBar, color: "#F2C811", x: 15, y: 60 },
+  { name: "Postgres", icon: SiPostgresql, color: "#4169E1", x: 25, y: 85 },
+  { name: "Banco de dados", icon: FaDatabase, color: "#9CA3AF", x: 50, y: 92 },
 ];
 
 export function Tecnologias() {
@@ -76,6 +84,24 @@ export function Tecnologias() {
                 </span>
               ))}
             </div>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal delayMs={100} className="mt-10 sm:mt-14">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5">
+            {TECNOLOGIAS.map((tech) => {
+              const Icon = tech.icon;
+              return (
+                <span
+                  key={tech.name}
+                  title={tech.name}
+                  className="flex aspect-square size-16 shrink-0 items-center justify-center rounded-2xl shadow-[0_8px_20px_-8px_rgba(0,0,0,0.6)] sm:size-20"
+                  style={{ background: `linear-gradient(135deg, ${tech.color}, color-mix(in srgb, ${tech.color} 45%, black))` }}
+                >
+                  <Icon className="size-7 text-white sm:size-9" />
+                </span>
+              );
+            })}
           </div>
         </ScrollReveal>
       </div>

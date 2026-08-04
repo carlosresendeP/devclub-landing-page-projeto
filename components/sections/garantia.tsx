@@ -3,6 +3,7 @@
 import { FiShield } from "react-icons/fi";
 
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { useReveal } from "@/hooks/use-reveal";
 
 const PASSOS = [
   { numero: "01", texto: "Compre hoje e acesse imediatamente" },
@@ -15,9 +16,11 @@ const CIRCLE_CIRCUMFERENCE = 2 * Math.PI * CIRCLE_RADIUS;
 const CIRCLE_LABEL = "GARANTIA INCONDICIONAL  •  7 DIAS  •  ";
 
 export function Garantia() {
+  const rootRef = useReveal<HTMLDivElement>();
+
   return (
     <section id="garantia" className="relative overflow-hidden py-24 text-white sm:py-32">
-      <div className="mx-auto w-full max-w-4xl px-8">
+      <div ref={rootRef} className="mx-auto w-full max-w-5xl px-8">
         <ScrollReveal className="elevated-surface relative overflow-hidden rounded-panel border border-white/10 px-6 py-12 sm:px-12">
           <div aria-hidden className="pointer-events-none absolute -top-32 right-0 size-80 rounded-full bg-brand-green/15 blur-3xl" />
 
@@ -45,10 +48,10 @@ export function Garantia() {
             <div className="flex flex-col gap-6 text-center sm:text-left">
               <div className="flex flex-col gap-3">
                 <span className="font-display text-xs font-bold tracking-widest text-brand-green-soft uppercase">risco zero pra você</span>
-                <h2 className="font-display text-reel-heading font-bold leading-reel-heading tracking-reel-heading text-white">
+                <h2 data-reveal className="reveal delay-75 font-display text-reel-heading font-bold leading-reel-heading tracking-reel-heading text-white">
                   7 dias de garantia <span className="text-gradient-brand">incondicional</span>
                 </h2>
-                <p className="text-sm text-white/60 sm:max-w-2xl sm:text-base">
+                <p data-reveal className="reveal delay-150 text-sm text-white/60 sm:max-w-2xl sm:text-base">
                   Você tem até <span className="font-semibold text-white">7 dias</span> depois da sua matrícula no DevClub para explorar todos
                   os cursos, formações, projetos e a comunidade. Se não for pra você, é só pedir reembolso. Sem burocracia, sem letra miúda.
                 </p>

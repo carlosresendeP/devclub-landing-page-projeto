@@ -228,12 +228,14 @@ export function Salarios() {
 
           {/* Mobile/tablet: static fallback, no scroll pin */}
           <div className="lg:hidden">
-            <p className="mt-4 max-w-135 text-reel-body leading-reel-body text-white/62">
-              Seu salário cresce junto com sua experiência. Veja como a trajetória em programação evolui, nível a nível, sem teto definido.
-            </p>
-            <div className="mt-6">
+            <ScrollReveal>
+              <p className="mt-4 max-w-135 text-reel-body leading-reel-body text-white/62">
+                Seu salário cresce junto com sua experiência. Veja como a trajetória em programação evolui, nível a nível, sem teto definido.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delayMs={60} className="mt-6">
               <AreaPills />
-            </div>
+            </ScrollReveal>
             <SalariosChart activeStep={ETAPAS.length - 1} className="mt-10 h-95 sm:h-110" />
             <div className="mt-10 flex flex-col gap-8">
               {ETAPAS.map((etapa, index) => (

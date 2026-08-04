@@ -1,7 +1,7 @@
 export function HeroCta() {
   return (
     <>
-      <div className="gradient-border-pill mt-6 inline-block opacity-0 animate-fade-up" style={{ animationDelay: "3.2s" }}>
+      <div className="gradient-border-pill mt-6 inline-block opacity-0 animate-fade-up [animation-delay:3.2s]">
         <button
           type="button"
           className="group relative z-10 inline-flex items-center overflow-hidden rounded-full bg-ink-button px-7 py-3.5 text-sm font-medium text-white"

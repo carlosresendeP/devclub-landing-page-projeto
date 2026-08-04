@@ -39,14 +39,13 @@ export function Reel() {
 
           <h2
             id="reel-heading"
-            data-reveal
-            className="reveal delay-75 mb-5 font-display text-reel-heading font-bold leading-reel-heading tracking-reel-heading text-white"
+            className="mb-5 font-display text-reel-heading font-bold leading-reel-heading tracking-reel-heading text-white"
           >
             Não é só assistir aula. É entrar em um <span className="text-brand-green-soft">ecossistema</span> feito para
             você <span className="text-brand-purple-soft">evoluir</span>.
           </h2>
 
-          <p data-reveal className="reveal delay-150 max-w-135 font-body text-reel-body leading-reel-body text-white/62">
+          <p className="max-w-135 font-body text-reel-body leading-reel-body text-white/62">
             Veja como formações, prática, professores, suporte, comunidade e oportunidades se conectam.
           </p>
         </div>
@@ -88,7 +87,7 @@ export function Reel() {
           />
         </div>
 
-        <p data-reveal className="reveal delay-300 relative z-10 mt-6 font-body text-sm text-white/55">
+        <p className="relative z-10 mt-6 font-body text-sm text-white/55">
           Um gostinho da experiência dentro da{" "}
           <span className="text-brand-green-soft">plataforma DevClub</span>.
         </p>

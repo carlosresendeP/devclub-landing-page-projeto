@@ -89,14 +89,18 @@ export function Tecnologias() {
 
         <ScrollReveal delayMs={100} className="mt-10 sm:mt-14">
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5">
-            {TECNOLOGIAS.map((tech) => {
+            {TECNOLOGIAS.map((tech, index) => {
               const Icon = tech.icon;
               return (
                 <span
                   key={tech.name}
+                  data-scroll-inout
                   title={tech.name}
                   className="flex aspect-square size-16 shrink-0 items-center justify-center rounded-2xl shadow-[0_8px_20px_-8px_rgba(0,0,0,0.6)] sm:size-20"
-                  style={{ background: `linear-gradient(135deg, ${tech.color}, color-mix(in srgb, ${tech.color} 45%, black))` }}
+                  style={{
+                    background: `linear-gradient(135deg, ${tech.color}, color-mix(in srgb, ${tech.color} 45%, black))`,
+                    transitionDelay: `${(index % 6) * 45}ms`,
+                  }}
                 >
                   <Icon className="size-7 text-white sm:size-9" />
                 </span>

@@ -48,10 +48,10 @@ export function Garantia() {
             <div className="flex flex-col gap-6 text-center sm:text-left">
               <div className="flex flex-col gap-3">
                 <span className="font-display text-xs font-bold tracking-widest text-brand-green-soft uppercase">risco zero pra você</span>
-                <h2 data-reveal className="reveal delay-75 font-display text-reel-heading font-bold leading-reel-heading tracking-reel-heading text-white">
+                <h2 className="font-display text-reel-heading font-bold leading-reel-heading tracking-reel-heading text-white">
                   7 dias de garantia <span className="text-gradient-brand">incondicional</span>
                 </h2>
-                <p data-reveal className="reveal delay-150 text-sm text-white/60 sm:max-w-2xl sm:text-base">
+                <p className="text-sm text-white/60 sm:max-w-2xl sm:text-base">
                   Você tem até <span className="font-semibold text-white">7 dias</span> depois da sua matrícula no DevClub para explorar todos
                   os cursos, formações, projetos e a comunidade. Se não for pra você, é só pedir reembolso. Sem burocracia, sem letra miúda.
                 </p>

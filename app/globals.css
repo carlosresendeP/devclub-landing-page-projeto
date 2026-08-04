@@ -679,3 +679,31 @@ html {
     transition: none;
   }
 }
+
+/* ============== SCROLL-LINKED TEXT ENTRANCE/EXIT ==============
+   Headings and paragraphs fade and shift in as they scroll into view,
+   then fade and shift back out as they scroll past, in both directions.
+   Driven by the TextScrollInOut IntersectionObserver (components/ui/
+   text-scroll-inout.tsx), which toggles .is-active on and off every
+   time an element crosses the viewport, so this is not a one-shot
+   reveal. Kept as a plain class-toggle transition (not CSS
+   animation-timeline) for reliable cross-browser behavior. */
+.text-inout {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.7s var(--ease-signature),
+    transform 0.7s var(--ease-signature);
+}
+.text-inout.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-inout {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

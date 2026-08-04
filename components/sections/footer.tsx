@@ -49,7 +49,7 @@ export function Footer() {
       <div ref={rootRef} className="mx-auto w-full max-w-wrap px-8">
         <div className="flex flex-col items-center gap-6 border-b border-white/10 py-16 text-center sm:py-20">
           <span data-reveal className="reveal font-display text-[11px] font-bold tracking-widest text-brand-purple-soft uppercase">matrícula aberta</span>
-          <h2 data-reveal className="reveal delay-75 max-w-3xl font-display text-reel-heading font-bold leading-reel-heading tracking-reel-heading text-white">
+          <h2 className="max-w-3xl font-display text-reel-heading font-bold leading-reel-heading tracking-reel-heading text-white">
             Pronto para começar <span className="text-gradient-brand">sua jornada?</span>
           </h2>
           <div data-reveal className="reveal delay-150 gradient-border-pill mt-2 inline-block">
@@ -69,7 +69,7 @@ export function Footer() {
               <Image src="/LOGO.webp" alt="DevClub" width={32} height={32} className="brightness-0 invert" />
               <span className="font-display text-sm text-white">DevClub</span>
             </a>
-            <p data-reveal className="reveal text-sm text-white/60">
+            <p className="text-sm text-white/60">
               Escola de programação, gestão de IA, automações e análise de dados, do zero ao avançado, com mentoria semanal e uma comunidade que não te
               deixa parar no meio do caminho.
             </p>

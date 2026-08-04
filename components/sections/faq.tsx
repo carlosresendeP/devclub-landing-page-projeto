@@ -49,8 +49,8 @@ export function Faq() {
             <span className="h-2 w-2 shrink-0 rounded-full bg-brand-green" style={{ boxShadow: "0 0 10px #39D353" }} />
             Dúvidas
           </span>
-          <h2 data-reveal className="reveal delay-75 font-display text-reel-heading font-bold leading-reel-heading tracking-reel-heading text-white">Perguntas que todo futuro aluno faz</h2>
-          <p data-reveal className="reveal delay-150 max-w-sm text-base text-white/60">Ainda com dúvida? Fala direto com a gente antes de decidir.</p>
+          <h2 className="font-display text-reel-heading font-bold leading-reel-heading tracking-reel-heading text-white">Perguntas que todo futuro aluno faz</h2>
+          <p className="max-w-sm text-base text-white/60">Ainda com dúvida? Fala direto com a gente antes de decidir.</p>
           <a
             data-reveal
             href="#"

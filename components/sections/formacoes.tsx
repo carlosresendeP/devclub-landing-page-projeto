@@ -128,14 +128,13 @@ export function Formacoes() {
 
       <h2
         id="formacoes-heading"
-        data-reveal
-        className="reveal delay-75 mb-5 font-display text-reel-heading font-bold leading-reel-heading tracking-reel-heading text-white"
+        className="mb-5 font-display text-reel-heading font-bold leading-reel-heading tracking-reel-heading text-white"
       >
         Formações completas para aprender tudo do <span className="text-brand-green-soft">zero</span> ao{" "}
         <span className="text-brand-purple-soft">avançado</span>.
       </h2>
 
-      <p data-reveal className="reveal delay-150 flex items-center gap-2 font-accent text-xs font-bold tracking-widest text-white/50 uppercase">
+      <p className="flex items-center gap-2 font-accent text-xs font-bold tracking-widest text-white/50 uppercase">
         Clique para navegar <FiArrowRight className="text-brand-green-soft" />
       </p>
     </div>

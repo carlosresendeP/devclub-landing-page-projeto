@@ -2,6 +2,7 @@ import { AlemDoCodigo } from "@/components/sections/alem-do-codigo";
 import { BrandOutro } from "@/components/sections/brand-outro";
 import { Certificado } from "@/components/sections/certificado";
 import { Depoimentos } from "@/components/sections/depoimentos";
+import { Ecossistema } from "@/components/sections/ecossistema";
 import { Empresas } from "@/components/sections/empresas";
 import { Faq } from "@/components/sections/faq";
 import { Footer } from "@/components/sections/footer";
@@ -14,10 +15,12 @@ import { ProjetosReais } from "@/components/sections/projetos-reais";
 import { Reel } from "@/components/sections/reel";
 import { Salarios } from "@/components/sections/salarios";
 import { Tecnologias } from "@/components/sections/tecnologias";
+import { TextScrollInOut } from "@/components/ui/text-scroll-inout";
 
 export default function Home() {
   return (
     <main>
+      <TextScrollInOut />
       <Hero />
       <Reel />
       <Formacoes />
@@ -26,6 +29,7 @@ export default function Home() {
       <ProjetosReais />
       <Tecnologias />
       <Depoimentos />
+      <Ecossistema />
       <Professores />
       <Certificado />
       <ModulosBonus />

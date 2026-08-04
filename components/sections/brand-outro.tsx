@@ -43,7 +43,7 @@ export function BrandOutro() {
           <div className="absolute top-0 left-1/2 h-px w-1/3 -translate-x-1/2 bg-linear-to-r from-transparent via-brand-green to-transparent blur-md" />
         </div>
 
-        <p data-reveal className="reveal delay-150 max-w-md text-sm text-balance text-white/55 sm:text-base">
+        <p className="max-w-md text-sm text-balance text-white/55 sm:text-base">
           Sua vaga como programador está mais perto do que você imagina. O chamado continua aqui.
         </p>
 

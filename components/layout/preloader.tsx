@@ -82,7 +82,7 @@ export function Preloader() {
                 src="/LOGO.webp"
                 alt="DevClub"
                 fill
-                priority
+                preload
                 sizes="(min-width: 640px) 80px, 64px"
                 className="relative object-contain"
               />

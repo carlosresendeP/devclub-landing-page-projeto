@@ -12,6 +12,7 @@ interface TechArchitectureProps {
 export function TechArchitecture({ className }: TechArchitectureProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
+  const [visible, setVisible] = useState(false);
   const reducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
@@ -21,10 +22,8 @@ export function TechArchitecture({ className }: TechArchitectureProps) {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.disconnect();
-        }
+        if (entry.isIntersecting) setInView(true);
+        setVisible(entry.isIntersecting);
       },
       { threshold: 0.35 }
     );
@@ -35,7 +34,7 @@ export function TechArchitecture({ className }: TechArchitectureProps) {
   const active = reducedMotion || inView;
 
   return (
-    <div ref={containerRef} className={cn("text-white/12", className)}>
+    <div ref={containerRef} className={cn("text-white/12", !visible && !reducedMotion && "tech-paused", className)}>
       {active && <TechCpuSvg animate={!reducedMotion} />}
     </div>
   );

@@ -1,9 +1,31 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+
 import { useReveal } from "@/hooks/use-reveal";
 
 export function Reel() {
   const rootRef = useReveal<HTMLDivElement>();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (!video.src) video.src = "/film/plataforma-film.mp4";
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { rootMargin: "200px 0px", threshold: 0.1 }
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section id="reel" aria-labelledby="reel-heading" className="relative overflow-hidden bg-linear-to-b from-ink to-transparent py-30 text-white">
@@ -40,13 +62,13 @@ export function Reel() {
 
             <div className="relative aspect-video overflow-hidden rounded-lg bg-ink">
               <video
+                ref={videoRef}
                 className="h-full w-full object-cover"
-                src="/film/plataforma-film.mp4"
-                autoPlay
+                poster="/print-plataforma.webp"
                 muted
                 loop
                 playsInline
-                preload="metadata"
+                preload="none"
               >
                 <track kind="captions" />
               </video>

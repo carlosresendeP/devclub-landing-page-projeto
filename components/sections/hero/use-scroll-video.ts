@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { FRAME_COUNT, FRAME_SRC } from "./constants";
-import { computeScrollProgress, debounce, smoothstep } from "./scroll-progress";
+import { debounce, smoothstep } from "./scroll-progress";
 
 export function useHeroScrollVideo() {
   const wrapperRef = useRef<HTMLElement>(null);
@@ -34,6 +34,14 @@ export function useHeroScrollVideo() {
     let rafId = 0;
     let smoothed = 0;
     let cancelled = false;
+    let running = false;
+    let scrollStart = 0;
+    let scrollEnd = 0;
+
+    function measureScrollRange() {
+      scrollStart = wrapper!.offsetTop;
+      scrollEnd = scrollStart + wrapper!.offsetHeight - window.innerHeight;
+    }
 
     function resizeCanvas() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -43,6 +51,7 @@ export function useHeroScrollVideo() {
       ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
       viewW = rect.width;
       viewH = rect.height;
+      measureScrollRange();
     }
 
     function drawCover(source: CanvasImageSource, sw: number, sh: number) {
@@ -56,28 +65,29 @@ export function useHeroScrollVideo() {
       ctx!.drawImage(source, dx, dy, dw, dh);
     }
 
-    async function loadFrame(index: number) {
-      const res = await fetch(FRAME_SRC(index + 1));
+    async function loadFrame(index: number, priority: RequestPriority = "auto") {
+      const res = await fetch(FRAME_SRC(index + 1), { priority });
       const blob = await res.blob();
       return createImageBitmap(blob);
     }
 
     async function loadFrames() {
       try {
-        frames[0] = await loadFrame(0);
+        frames[0] = await loadFrame(0, "high");
         if (cancelled) return;
         canvas!.style.opacity = "1";
         drawCover(frames[0]!, frames[0]!.width, frames[0]!.height);
         lastDrawnIndex = 0;
 
-        for (let i = 1; i < FRAME_COUNT; i += 1) {
-          // eslint-disable-next-line no-await-in-loop
-          frames[i] = await loadFrame(i);
-          if (cancelled) return;
-        }
-      } catch {
-        // frames unavailable; canvas stays hidden
-      }
+        await Promise.all(
+          Array.from({ length: FRAME_COUNT - 1 }, (_, i) => i + 1).map(async (i) => {
+            if (cancelled) return;
+            try {
+              frames[i] = await loadFrame(i);
+            } catch {}
+          })
+        );
+      } catch {}
     }
 
     function updateActs(p: number) {
@@ -122,7 +132,7 @@ export function useHeroScrollVideo() {
     }
 
     function loop() {
-      const raw = computeScrollProgress(wrapper!);
+      const raw = scrollEnd <= scrollStart ? 0 : Math.min(1, Math.max(0, (window.scrollY - scrollStart) / (scrollEnd - scrollStart)));
       smoothed += (raw - smoothed) * 0.055;
 
       const idx = Math.round(smoothed * (FRAME_COUNT - 1));
@@ -136,18 +146,39 @@ export function useHeroScrollVideo() {
 
       updateActs(smoothed);
 
+      if (running) rafId = window.requestAnimationFrame(loop);
+    }
+
+    function startLoop() {
+      if (running) return;
+      running = true;
       rafId = window.requestAnimationFrame(loop);
+    }
+
+    function stopLoop() {
+      running = false;
+      window.cancelAnimationFrame(rafId);
     }
 
     resizeCanvas();
     const onResize = debounce(resizeCanvas, 150);
     window.addEventListener("resize", onResize);
 
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) startLoop();
+        else stopLoop();
+      },
+      { rootMargin: "100% 0px 100% 0px" }
+    );
+    visibilityObserver.observe(wrapper);
+
     loadFrames();
-    rafId = window.requestAnimationFrame(loop);
+    startLoop();
 
     return () => {
       cancelled = true;
+      visibilityObserver.disconnect();
       window.cancelAnimationFrame(rafId);
       window.removeEventListener("resize", onResize);
       frames.forEach((bitmap) => bitmap?.close());

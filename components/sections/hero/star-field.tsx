@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, type RefObject } from "react";
-import { computeScrollProgress, debounce, smoothstep } from "./scroll-progress";
+import { debounce, smoothstep } from "./scroll-progress";
 
 type Star = {
   x: number;
@@ -51,6 +51,8 @@ export function StarField({ wrapperRef }: { wrapperRef: RefObject<HTMLElement | 
     let height = 0;
     let rafId = 0;
     let visible = true;
+    let scrollStart = 0;
+    let scrollEnd = 0;
 
     function resize() {
       width = wrapper!.offsetWidth;
@@ -61,6 +63,8 @@ export function StarField({ wrapperRef }: { wrapperRef: RefObject<HTMLElement | 
       canvas!.style.height = `${height}px`;
       ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
       stars = createStars(width, height);
+      scrollStart = wrapper!.offsetTop;
+      scrollEnd = scrollStart + wrapper!.offsetHeight - window.innerHeight;
     }
 
     function draw(time: number) {
@@ -83,7 +87,7 @@ export function StarField({ wrapperRef }: { wrapperRef: RefObject<HTMLElement | 
     }
 
     function updateFade() {
-      const p = computeScrollProgress(wrapper!);
+      const p = scrollEnd <= scrollStart ? 0 : Math.min(1, Math.max(0, (window.scrollY - scrollStart) / (scrollEnd - scrollStart)));
       const fadeEnd = 0.22;
       const opacity = p >= fadeEnd ? 0 : 1 - smoothstep(p / fadeEnd);
       canvas!.style.opacity = String(opacity);
@@ -96,16 +100,27 @@ export function StarField({ wrapperRef }: { wrapperRef: RefObject<HTMLElement | 
     window.addEventListener("resize", onResize);
     window.addEventListener("scroll", onScroll, { passive: true });
 
-    const observer = new IntersectionObserver(([entry]) => (visible = entry.isIntersecting), { threshold: 0 });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        visible = entry.isIntersecting;
+        if (visible && !reducedMotion && !rafId) rafId = window.requestAnimationFrame(tick);
+      },
+      { threshold: 0 }
+    );
     observer.observe(wrapper);
+
+    function tick(time: number) {
+      if (!visible) {
+        rafId = 0;
+        return;
+      }
+      draw(time);
+      rafId = window.requestAnimationFrame(tick);
+    }
 
     if (reducedMotion) {
       draw(0);
     } else {
-      const tick = (time: number) => {
-        if (visible) draw(time);
-        rafId = window.requestAnimationFrame(tick);
-      };
       rafId = window.requestAnimationFrame(tick);
     }
 

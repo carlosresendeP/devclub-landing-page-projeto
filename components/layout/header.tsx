@@ -32,7 +32,7 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-mkt items-center justify-between px-10 py-4">
         <div className="flex items-center gap-11">
-          <Image src="/LOGO.webp" alt="DevClub" width={100} height={100} className="h-7 w-auto brightness-0 invert" />
+          <Image src="/LOGO.webp" alt="DevClub" width={100} height={100} className="h-7 w-auto" />
 
           <nav aria-label="Navegação principal" className="hidden items-center gap-7 md:flex">
             {NAV_LINKS.map((link) => (

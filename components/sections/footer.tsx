@@ -106,8 +106,6 @@ export function Footer() {
             ))}
           </div>
         </div>
-
-        <p data-reveal className="reveal border-t border-white/10 py-8 text-xs text-white/40">© {new Date().getFullYear()} DevClub. Todos os direitos reservados.</p>
       </div>
     </footer>
   );
